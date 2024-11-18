@@ -28,7 +28,7 @@ export const PlacedToolBoxItem = ({ tool }: { tool: ToolBoxItemWithMeta }) => {
     if (!element) return;
 
     let resizeTimeout: string | number | NodeJS.Timeout | undefined;
-    // Create a ResizeObserver
+
     const resizeObserver = new ResizeObserver((entries) => {
       clearTimeout(resizeTimeout);
 
@@ -39,13 +39,11 @@ export const PlacedToolBoxItem = ({ tool }: { tool: ToolBoxItemWithMeta }) => {
             resizeToolboxItem({ ...tool, dimensions: { width, height } })
           );
         });
-      }, 100); // Debounce time (100ms)
+      }, 100);
     });
 
-    // Start observing the resizable element
     resizeObserver.observe(element);
 
-    // Cleanup observer on unmount
     return () => {
       resizeObserver.disconnect();
       clearTimeout(resizeTimeout);
