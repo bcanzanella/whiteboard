@@ -27,12 +27,19 @@ export const PlacedToolBoxItem = ({ tool }: { tool: ToolBoxItemWithMeta }) => {
     const element = divRef.current;
     if (!element) return;
 
+    let resizeTimeout: string | number | NodeJS.Timeout | undefined;
     // Create a ResizeObserver
     const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        const { width, height } = entry.contentRect;
-        dispatch(resizeToolboxItem({ ...tool, dimensions: { width, height } }));
-      }
+      clearTimeout(resizeTimeout);
+
+      resizeTimeout = setTimeout(() => {
+        entries.forEach((entry) => {
+          const { width, height } = entry.contentRect;
+          dispatch(
+            resizeToolboxItem({ ...tool, dimensions: { width, height } })
+          );
+        });
+      }, 100); // Debounce time (100ms)
     });
 
     // Start observing the resizable element
@@ -41,6 +48,7 @@ export const PlacedToolBoxItem = ({ tool }: { tool: ToolBoxItemWithMeta }) => {
     // Cleanup observer on unmount
     return () => {
       resizeObserver.disconnect();
+      clearTimeout(resizeTimeout);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
