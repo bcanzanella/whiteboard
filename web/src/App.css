@@ -1,0 +1,104 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toolbox {
+  border: 1px solid gray;
+  padding: 10px;
+}
+
+.toolbox-item {
+  border: 1px solid black;
+  border-radius: 2px;
+  cursor: move;
+  margin: 5px 0;
+  padding: 10px;
+}
+
+.tool-container {
+  height: auto;
+  padding: 8px;
+  position: absolute;
+  width: auto;
+}
+
+.tool-container:hover {
+  background: #dfdfdf;
+}
+
+.toolbar {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: none; /* Initially hidden */
+  position: absolute;
+  right: -15px;
+  text-align: right;
+  top: -22px;
+  transform: translateX(-50%);
+}
+
+.tool-container:hover .toolbar {
+  display: block; /* Show toolbar when the container is hovered */
+}
+
+.toolbar-container:hover {
+  border: 1px solid blue;
+}
+
+.tool-placed {
+  border-radius: 1px;
+  cursor: move;
+  font-family: cursive;
+  padding: 5px;
+}
+
+.resize {
+  border: 1px solid black;
+  overflow: auto;
+}
+
+.resize.both {
+  resize: both;
+}
+
+.resize.horizontal {
+  resize: horizontal;
+}
+
+.resize.vertical {
+  resize: vertical;
+}
+
+.whiteboard {
+  border: 2px dashed gray;
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
