@@ -84,7 +84,7 @@ export const PlacedToolBoxItem = ({ tool }: { tool: ToolBoxItemWithMeta }) => {
       </div>
 
       <div className="tool-placed" data-id={tool.id} ref={drag}>
-        {tool.tag === "span" ? (
+        {tool.tag === "div" ? (
           <div
             ref={divRef}
             className="resize both"

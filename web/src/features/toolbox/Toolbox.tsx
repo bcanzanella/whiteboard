@@ -8,7 +8,7 @@ const tools: ToolBoxItem[] = [
     key: "square",
     id: undefined,
     defaultValue: "",
-    tag: "span",
+    tag: "div",
     defaultStyle: {
       border: "3px solid blue",
       height: "100px",
@@ -20,7 +20,7 @@ const tools: ToolBoxItem[] = [
     key: "rectangle",
     id: undefined,
     defaultValue: "",
-    tag: "span",
+    tag: "div",
     defaultStyle: {
       border: "3px solid blue",
       height: "200px",
